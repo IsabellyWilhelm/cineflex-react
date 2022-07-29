@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Movie from "./Movie";
+import Movie from "./movie";
 export default function Movies(props) {
   const [movies, setMovies] = useState();
 
