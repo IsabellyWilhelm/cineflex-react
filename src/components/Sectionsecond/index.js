@@ -15,6 +15,7 @@ export default function SectionDetails(props) {
   const [idSeatInfo, setIdSeatInfo] = useState(0);
   const [seatNumberName, setSeatNumberName] = useState(0);
   
+  //-----------------------SEATS PARA SESSÃO---------------------------------------------------
   useEffect(() => {
     const promisse = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${idSection}/seats`);
   
@@ -119,13 +120,13 @@ export default function SectionDetails(props) {
       </Fragment>
     );
   });
-
+///USAR BOOK MANY PARA ASSENTOS
   function sendObject() {
     if(reserveSeats.ids.length !== 0 || reserveSeats.compradores.length !== 0){
       if(window.confirm("Você confirma todas as seleções feitas?")){
         if(reserveSeats.ids.length === reserveSeats.compradores.length){
           props.sendSuccesObject(reserveSeats, idSection, '');
-          const promisse = axios.post(`https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many`, reserveSeats);
+          const promisse = axios.post(`https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many`, reserveSeats); //BOOK-MANY PARA ASSENTOS
           promisse.then(() => navigate('/success-screen'));
           promisse.catch(() => window.location.reload(true));
         }else{

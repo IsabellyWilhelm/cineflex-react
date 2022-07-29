@@ -7,6 +7,7 @@ export default function MovieSection(props) {
   const { idMovie } = useParams();
   const [movieSection, setMovieSection] = useState();
 
+  //--------------------PFAZER AS SESSÕES DO FILME-------------------------------------
   useEffect(() => {
     const promisse = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${idMovie}/showtimes`);
     
